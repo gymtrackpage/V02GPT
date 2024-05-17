@@ -4,9 +4,9 @@ function calculateVO2Max() {
     const timeSeconds = document.getElementById('seconds').value;
 
     if (distance && timeMinutes && timeSeconds) {
-        const timeInSeconds = (parseInt(timeMinutes) * 60) + parseInt(timeSeconds);
-        const velocity = distance / timeInSeconds;
-        const vo2max = (velocity * 0.2 / 0.177) + 3.5;
+        const timeInMinutes = parseInt(timeMinutes) + (parseInt(timeSeconds) / 60);
+        const velocity = distance / timeInMinutes;
+        const vo2max = (velocity * 0.2) + 3.5;
 
         const resultDiv = document.getElementById('results');
         const resultText = `Estimated VO2Max: ${vo2max.toFixed(2)} ml/kg/min`;
